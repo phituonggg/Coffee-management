@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QuanLyQuanCaPhe1">
+  <DataContextMoniker Name="/QuanLyQuanCaPhe1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="6f141dc2-7142-46d1-bd33-e418cef88a17" absoluteBounds="6.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/Account" />
+      <nestedChildShapes>
+        <elementListCompartment Id="34503f78-5b9d-4777-bc1a-684ff03c64b1" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7d1949d-b02c-409b-a1b9-901d382713da" absoluteBounds="3.5, 4.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/Bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="055e2580-8430-42aa-8a0f-5240e84a3f59" absoluteBounds="3.515, 5.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d42d90f7-d78d-4080-a101-99759746036d" absoluteBounds="6.25, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/BillInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e601306a-a461-4b03-9c37-19caf026090a" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c6571089-cb9b-40bf-84b7-d16448d2769d" absoluteBounds="3.5, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/Food" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d73ed138-713d-4e88-9829-bf9ccca84f8b" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8897e2a0-0fca-48d3-8ceb-e0f41f19615b" absoluteBounds="0.75, 1.125, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/FoodCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="20dfd10b-759b-4a25-998b-e72be99e6c28" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d476fe7c-3f76-47de-937a-b8ac5f79b9e1" absoluteBounds="0.75, 5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/QuanLyQuanCaPhe1DataContext/TableFood" />
+      <nestedChildShapes>
+        <elementListCompartment Id="daee1b49-affd-4b93-b18f-c1aae6b968e1" absoluteBounds="0.765, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.08579752604167); (6.46875 : 6.08579752604167); (6.46875 : 2.45359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/QuanLyQuanCaPhe1DataContext/Bill/Bill_BillInfo" />
+      <nodes>
+        <classShapeMoniker Id="a7d1949d-b02c-409b-a1b9-901d382713da" />
+        <classShapeMoniker Id="d42d90f7-d78d-4080-a101-99759746036d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.66429768880208); (6.25 : 1.66429768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/QuanLyQuanCaPhe1DataContext/Food/Food_BillInfo" />
+      <nodes>
+        <classShapeMoniker Id="c6571089-cb9b-40bf-84b7-d16448d2769d" />
+        <classShapeMoniker Id="d42d90f7-d78d-4080-a101-99759746036d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/QuanLyQuanCaPhe1DataContext/FoodCategory/FoodCategory_Food" />
+      <nodes>
+        <classShapeMoniker Id="8897e2a0-0fca-48d3-8ceb-e0f41f19615b" />
+        <classShapeMoniker Id="c6571089-cb9b-40bf-84b7-d16448d2769d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.69314697265625); (3.5 : 5.69314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/QuanLyQuanCaPhe1DataContext/TableFood/TableFood_Bill" />
+      <nodes>
+        <classShapeMoniker Id="d476fe7c-3f76-47de-937a-b8ac5f79b9e1" />
+        <classShapeMoniker Id="a7d1949d-b02c-409b-a1b9-901d382713da" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

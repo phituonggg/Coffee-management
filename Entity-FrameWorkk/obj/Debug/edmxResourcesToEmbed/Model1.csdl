@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyQuanCafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="FN_GetListIncomeByDate_Result">
+    <Property Name="namee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="dateinn" Type="DateTime" />
+    <Property Name="dateoutt" Type="DateTime" />
+    <Property Name="discountt" Type="Int32" />
+    <Property Name="totalPricee" Type="Double" />
+  </ComplexType>
+  <ComplexType Name="FN_GetMenu_Result">
+    <Property Name="namefood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="countt" Type="Int32" />
+    <Property Name="price" Type="Double" />
+    <Property Name="totalPricee" Type="Double" />
+  </ComplexType>
+  <ComplexType Name="FN_ListAccount_Result">
+    <Property Name="username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="displayname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="type" Type="Int32" />
+  </ComplexType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateCheckIn" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateCheckOut" Type="DateTime" Precision="0" />
+    <Property Name="idTable" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="totalPrice" Type="Double" />
+    <NavigationProperty Name="TableFood" Relationship="Self.FK__Bill__idTable__5441852A" FromRole="Bill" ToRole="TableFood" />
+    <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idBill__5535A963" FromRole="Bill" ToRole="BillInfo" />
+  </EntityType>
+  <EntityType Name="BillInfo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idBill" Type="Int32" Nullable="false" />
+    <Property Name="idFood" Type="Int32" Nullable="false" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK__BillInfo__idBill__5535A963" FromRole="BillInfo" ToRole="Bill" />
+    <NavigationProperty Name="Food" Relationship="Self.FK__BillInfo__idFood__5629CD9C" FromRole="BillInfo" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="idEmployee" />
+    </Key>
+    <Property Name="idEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameEmpployee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birthEmployye" Type="DateTime" Precision="3" />
+    <Property Name="workingEmployye" Type="Double" Nullable="false" />
+    <Property Name="statusEmployye" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idCategory" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__idFood__5629CD9C" FromRole="Food" ToRole="BillInfo" />
+    <NavigationProperty Name="FoodCategory" Relationship="Self.FK__Food__idCategory__571DF1D5" FromRole="Food" ToRole="FoodCategory" />
+  </EntityType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK__Food__idCategory__571DF1D5" FromRole="FoodCategory" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="TableFood">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idTable__5441852A" FromRole="TableFood" ToRole="Bill" />
+  </EntityType>
+  <EntityType Name="ListAccount">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="DisplayName" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="View_EmployeeActiv">
+    <Key>
+      <PropertyRef Name="idEmployee" />
+      <PropertyRef Name="nameEmpployee" />
+      <PropertyRef Name="workingEmployye" />
+      <PropertyRef Name="statusEmployye" />
+    </Key>
+    <Property Name="idEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nameEmpployee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birthEmployye" Type="DateTime" Precision="3" />
+    <Property Name="workingEmployye" Type="Double" Nullable="false" />
+    <Property Name="statusEmployye" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Bill__idTable__5441852A">
+    <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableFood">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="idTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillInfo__idBill__5535A963">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BillInfo">
+        <PropertyRef Name="idBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillInfo__idFood__5629CD9C">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BillInfo">
+        <PropertyRef Name="idFood" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Food__idCategory__571DF1D5">
+    <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="idCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyQuanCafeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="BillInfoes" EntityType="Self.BillInfo" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
+    <EntitySet Name="TableFoods" EntityType="Self.TableFood" />
+    <EntitySet Name="ListAccounts" EntityType="Self.ListAccount" />
+    <EntitySet Name="View_EmployeeActiv" EntityType="Self.View_EmployeeActiv" />
+    <AssociationSet Name="FK__Bill__idTable__5441852A" Association="Self.FK__Bill__idTable__5441852A">
+      <End Role="TableFood" EntitySet="TableFoods" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillInfo__idBill__5535A963" Association="Self.FK__BillInfo__idBill__5535A963">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="BillInfo" EntitySet="BillInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillInfo__idFood__5629CD9C" Association="Self.FK__BillInfo__idFood__5629CD9C">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="BillInfo" EntitySet="BillInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Food__idCategory__571DF1D5" Association="Self.FK__Food__idCategory__571DF1D5">
+      <End Role="FoodCategory" EntitySet="FoodCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <FunctionImport Name="FN_GetListIncomeByDate" IsComposable="true" ReturnType="Collection(QuanLyQuanCafeModel.FN_GetListIncomeByDate_Result)">
+      <Parameter Name="datein" Mode="In" Type="DateTime" />
+      <Parameter Name="dateout" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="FN_GetMenu" IsComposable="true" ReturnType="Collection(QuanLyQuanCafeModel.FN_GetMenu_Result)">
+      <Parameter Name="id1" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="FN_ListAccount" IsComposable="true" ReturnType="Collection(QuanLyQuanCafeModel.FN_ListAccount_Result)">
+      <Parameter Name="type" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddTable" />
+    <FunctionImport Name="DeleteEmploy">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteTable" />
+    <FunctionImport Name="GanQuyenNhanVien">
+      <Parameter Name="type" Mode="In" Type="Int32" />
+      <Parameter Name="Loginname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetListByDate" ReturnType="Collection(QuanLyQuanCafeModel.GetListByDate_Result)">
+      <Parameter Name="datein" Mode="In" Type="DateTime" />
+      <Parameter Name="dateout" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ThemDangNhap">
+      <Parameter Name="LoginName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateAccount" ReturnType="Collection(QuanLyQuanCafeModel.UpdateAccount_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="displayname" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="newPasword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_CaculateWorkingTime">
+      <Parameter Name="totaltime" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="USP_EmployeeWorking">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetAccountByUserName" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetAccountByUserName_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetBill" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetBill_Result)">
+      <Parameter Name="idbill" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetLogin" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetLogin_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetMenu" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetMenu_Result)">
+      <Parameter Name="id1" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_GetTableList" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetTableList_Result)" />
+    <FunctionImport Name="USP_GetUnCheckTable" ReturnType="Collection(QuanLyQuanCafeModel.USP_GetUnCheckTable_Result)">
+      <Parameter Name="idtable" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertBill">
+      <Parameter Name="idTable" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_InsertBillInfo">
+      <Parameter Name="idBill" Mode="In" Type="Int32" />
+      <Parameter Name="idFood" Mode="In" Type="Int32" />
+      <Parameter Name="count" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ThanhToanLuong">
+      <Parameter Name="idEmployee" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="USP_ThemNhanVien1">
+      <Parameter Name="HoTen" Mode="In" Type="String" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="USP_XoaDangNhap">
+      <Parameter Name="LoginName" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GetListByDate_Result">
+    <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="DateCheckIn" Nullable="false" />
+    <Property Type="DateTime" Name="DateCheckOut" Nullable="true" />
+    <Property Type="Int32" Name="discount" Nullable="true" />
+    <Property Type="Double" Name="totalPrice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="UpdateAccount_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetAccountByUserName_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetBill_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_GetLogin_Result">
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetMenu_Result">
+    <Property Type="String" Name="foodname" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="count" Nullable="false" />
+    <Property Type="Double" Name="price" Nullable="false" />
+    <Property Type="Double" Name="totalPrice" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_GetTableList_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="USP_GetUnCheckTable_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="DateTime" Name="DateCheckIn" Nullable="false" />
+    <Property Type="DateTime" Name="DateCheckOut" Nullable="true" />
+    <Property Type="Int32" Name="idTable" Nullable="false" />
+    <Property Type="Int32" Name="status" Nullable="false" />
+    <Property Type="Int32" Name="Discount" Nullable="true" />
+    <Property Type="Double" Name="totalPrice" Nullable="true" />
+  </ComplexType>
+</Schema>

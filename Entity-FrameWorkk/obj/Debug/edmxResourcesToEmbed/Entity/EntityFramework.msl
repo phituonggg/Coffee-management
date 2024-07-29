@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyQuanCafe1ModelStoreContainer" CdmEntityContainer="QuanLyQuanCafe1Entities1">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+          <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+          <ScalarProperty Name="idTable" ColumnName="idTable" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillInfoes">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.BillInfo">
+        <MappingFragment StoreEntitySet="BillInfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idBill" ColumnName="idBill" />
+          <ScalarProperty Name="idFood" ColumnName="idFood" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+          <ScalarProperty Name="nameEmpployee" ColumnName="nameEmpployee" />
+          <ScalarProperty Name="birthEmployye" ColumnName="birthEmployye" />
+          <ScalarProperty Name="workingEmployye" ColumnName="workingEmployye" />
+          <ScalarProperty Name="statusEmployye" ColumnName="statusEmployye" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Foods">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.Food">
+        <MappingFragment StoreEntitySet="Food">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodCategories">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.FoodCategory">
+        <MappingFragment StoreEntitySet="FoodCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TableFoods">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.TableFood">
+        <MappingFragment StoreEntitySet="TableFood">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddTable" FunctionName="QuanLyQuanCafe1Model.Store.AddTable" />
+    <FunctionImportMapping FunctionImportName="DeleteEmploy" FunctionName="QuanLyQuanCafe1Model.Store.DeleteEmploy" />
+    <FunctionImportMapping FunctionImportName="DeleteTable" FunctionName="QuanLyQuanCafe1Model.Store.DeleteTable" />
+    <FunctionImportMapping FunctionImportName="FN_GetListIncomeByDate" FunctionName="QuanLyQuanCafe1Model.Store.FN_GetListIncomeByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.FN_GetListIncomeByDate_Result">
+          <ScalarProperty Name="namee" ColumnName="namee" />
+          <ScalarProperty Name="dateinn" ColumnName="dateinn" />
+          <ScalarProperty Name="dateoutt" ColumnName="dateoutt" />
+          <ScalarProperty Name="discountt" ColumnName="discountt" />
+          <ScalarProperty Name="totalPricee" ColumnName="totalPricee" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FN_GetMenu" FunctionName="QuanLyQuanCafe1Model.Store.FN_GetMenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.FN_GetMenu_Result">
+          <ScalarProperty Name="namefood" ColumnName="namefood" />
+          <ScalarProperty Name="countt" ColumnName="countt" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="totalPricee" ColumnName="totalPricee" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="FN_ListAccount" FunctionName="QuanLyQuanCafe1Model.Store.FN_ListAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.FN_ListAccount_Result">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="displayname" ColumnName="displayname" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GanQuyenNhanVien" FunctionName="QuanLyQuanCafe1Model.Store.GanQuyenNhanVien" />
+    <FunctionImportMapping FunctionImportName="GetListByDate" FunctionName="QuanLyQuanCafe1Model.Store.GetListByDate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.GetListByDate_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+          <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ThemDangNhap" FunctionName="QuanLyQuanCafe1Model.Store.ThemDangNhap" />
+    <FunctionImportMapping FunctionImportName="UpdateAccount" FunctionName="QuanLyQuanCafe1Model.Store.UpdateAccount">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.UpdateAccount_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_CaculateWorkingTime" FunctionName="QuanLyQuanCafe1Model.Store.USP_CaculateWorkingTime" />
+    <FunctionImportMapping FunctionImportName="USP_EmployeeWorking" FunctionName="QuanLyQuanCafe1Model.Store.USP_EmployeeWorking" />
+    <FunctionImportMapping FunctionImportName="USP_GetAccountByUserName" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetAccountByUserName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetAccountByUserName_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetBill" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetBill">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetBill_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetLogin" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetLogin_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetMenu" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetMenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetMenu_Result">
+          <ScalarProperty Name="foodname" ColumnName="foodname" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetTableList" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetTableList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetTableList_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetUnCheckTable" FunctionName="QuanLyQuanCafe1Model.Store.USP_GetUnCheckTable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QuanLyQuanCafe1Model.USP_GetUnCheckTable_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateCheckIn" ColumnName="DateCheckIn" />
+          <ScalarProperty Name="DateCheckOut" ColumnName="DateCheckOut" />
+          <ScalarProperty Name="idTable" ColumnName="idTable" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_InsertBill" FunctionName="QuanLyQuanCafe1Model.Store.USP_InsertBill" />
+    <FunctionImportMapping FunctionImportName="USP_InsertBillInfo" FunctionName="QuanLyQuanCafe1Model.Store.USP_InsertBillInfo" />
+    <FunctionImportMapping FunctionImportName="USP_ThanhToanLuong" FunctionName="QuanLyQuanCafe1Model.Store.USP_ThanhToanLuong" />
+    <FunctionImportMapping FunctionImportName="USP_ThemNhanVien1" FunctionName="QuanLyQuanCafe1Model.Store.USP_ThemNhanVien1" />
+    <FunctionImportMapping FunctionImportName="USP_XoaDangNhap" FunctionName="QuanLyQuanCafe1Model.Store.USP_XoaDangNhap" />
+    <EntitySetMapping Name="ListAccounts">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.ListAccount">
+        <MappingFragment StoreEntitySet="ListAccount">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_EmployeeActiv">
+      <EntityTypeMapping TypeName="QuanLyQuanCafe1Model.View_EmployeeActiv">
+        <MappingFragment StoreEntitySet="View_EmployeeActiv">
+          <ScalarProperty Name="statusEmployye" ColumnName="statusEmployye" />
+          <ScalarProperty Name="workingEmployye" ColumnName="workingEmployye" />
+          <ScalarProperty Name="birthEmployye" ColumnName="birthEmployye" />
+          <ScalarProperty Name="nameEmpployee" ColumnName="nameEmpployee" />
+          <ScalarProperty Name="idEmployee" ColumnName="idEmployee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

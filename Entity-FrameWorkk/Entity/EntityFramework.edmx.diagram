@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="15ede4c670394e27afa71a2137c69f2c" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.Account" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.Bill" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.BillInfo" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.Employee" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.Food" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.FoodCategory" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.TableFood" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__Bill__idTable__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__Bill__idTable__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__BillInfo__idBill__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__BillInfo__idBill__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__BillInfo__idFood__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__BillInfo__idFood__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__Food__idCategory__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyQuanCafe1Model.FK__Food__idCategory__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.ListAccount" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="QuanLyQuanCafe1Model.View_EmployeeActiv" Width="1.5" PointX="7.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
